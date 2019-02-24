@@ -1,10 +1,13 @@
 type Query {
     info: String!
     people: [Person!]!
+    person(id: ID!): Person
 }
 
 type Mutation {
     addPerson(name: String!): Person!
+    updatePerson(id: ID!, name: String!): Person
+    deletePerson(id: ID!): [Person]
 }
 
 type Person {
