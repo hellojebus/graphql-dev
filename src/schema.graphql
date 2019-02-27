@@ -8,9 +8,24 @@ type Mutation {
     addPerson(name: String!): Person!
     updatePerson(id: ID!, name: String!): Person
     deletePerson(id: ID!): [Person]
+    signup(email: String!, password: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
 }
 
 type Person {
     id: ID!
     name: String!
+    postedBy: User
+}
+
+type User {
+    id: ID!
+    email: String!
+    password: String!
+    persons: [Person!]!
+}
+
+type AuthPayload {
+    token: String
+    user: User
 }
