@@ -1,4 +1,12 @@
 type Person {
   id: ID! @unique
   name: String!
+  postedBy: User
+}
+
+type User {
+  id: ID! @unique
+  email: String! @unique
+  password: String!
+  persons: [Person!]!
 }
