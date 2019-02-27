@@ -3,5 +3,5 @@ function persons(parent, args, context) {
 }
 
 module.exports = {
-  links,
+  persons,
 };
