@@ -5,7 +5,7 @@ type Query {
 }
 
 type Mutation {
-    addPerson(name: String!): Person!
+    createPerson(name: String!): Person!
     updatePerson(id: ID!, name: String!): Person
     deletePerson(id: ID!): [Person]
     signup(email: String!, password: String!): AuthPayload
