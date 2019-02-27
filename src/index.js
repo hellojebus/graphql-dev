@@ -1,36 +1,18 @@
 const { GraphQLServer } = require('graphql-yoga');
 const { prisma } = require('./generated/prisma-client');
 
+const Query = require('./resolvers/Query');
+const Mutation = require('./resolvers/Mutation');
+const User = require('./resolvers/User');
+const Person = require('./resolvers/Person');
+
 
 // 2
 const resolvers = {
-  Query: {
-    info: () => "PeopleQL",
-    people: () => (root, args, context, info) => {
-      return context.prisma.persons();
-    },
-    person: (root, args, context, info) => {
-      return people.find( i => i.id === args.id);
-    }
-  },
-  Mutation : {
-    addPerson: (root, args, context, info) => {
-
-      return context.prisma.createPerson({
-        name: args.name,
-      });
-
-    },
-    updatePerson: (root, args, context, info) => {
-      let person = people.find( i => i.id === args.id);
-      person.name = args.name;
-      return person;
-    },
-    deletePerson: (root, args, context, info) => {
-      people = people.filter( i => i.id !== args.id);
-      return people;
-    }
-  }
+  Query,
+  Mutation,
+  User,
+  Person
 };
 
 // 3

@@ -30,8 +30,20 @@ async function login(parent, args, context, info) {
   }
 }
 
+function createPerson(parent, args, context, info) {
+  const userId = getUserId(context);
+  return context.prisma.createPerson({
+    name: args.name,
+    postedBy: {
+      connect: {
+        id: userId
+      }
+    }
+  })
+}
+
 module.exports = {
   signup,
   login,
   post,
-};/
+};
