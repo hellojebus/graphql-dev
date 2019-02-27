@@ -45,5 +45,5 @@ function createPerson(parent, args, context, info) {
 module.exports = {
   signup,
   login,
-  post,
+  createPerson,
 };
